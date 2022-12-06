@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_04_142845) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_154440) do
   create_table "agents", force: :cascade do |t|
     t.string "name"
     t.string "password"
@@ -22,12 +22,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_142845) do
   end
 
   create_table "favourites", force: :cascade do |t|
-    t.integer "id_goods_id", null: false
-    t.integer "id_ag_id", null: false
+    t.integer "goods_id", null: false
+    t.integer "ag_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["id_ag_id"], name: "index_favourites_on_id_ag_id"
-    t.index ["id_goods_id"], name: "index_favourites_on_id_goods_id"
+    t.index ["ag_id"], name: "index_favourites_on_ag_id"
+    t.index ["goods_id"], name: "index_favourites_on_goods_id"
   end
 
   create_table "goods", force: :cascade do |t|
@@ -37,19 +37,29 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_142845) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "goods_whs", force: :cascade do |t|
+    t.integer "wh_id", null: false
+    t.integer "goods_id", null: false
+    t.integer "quantity"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["goods_id"], name: "index_goods_whs_on_goods_id"
+    t.index ["wh_id"], name: "index_goods_whs_on_wh_id"
+  end
+
   create_table "operations", force: :cascade do |t|
-    t.integer "id_goods_id", null: false
-    t.integer "id_ag_id", null: false
-    t.integer "id_wh_id", null: false
+    t.integer "goods_id", null: false
+    t.integer "ag_id", null: false
+    t.integer "wh_id", null: false
     t.integer "typeop"
     t.integer "quantity"
     t.float "price"
     t.text "op_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["id_ag_id"], name: "index_operations_on_id_ag_id"
-    t.index ["id_goods_id"], name: "index_operations_on_id_goods_id"
-    t.index ["id_wh_id"], name: "index_operations_on_id_wh_id"
+    t.index ["ag_id"], name: "index_operations_on_ag_id"
+    t.index ["goods_id"], name: "index_operations_on_goods_id"
+    t.index ["wh_id"], name: "index_operations_on_wh_id"
   end
 
   create_table "warehouses", force: :cascade do |t|
@@ -59,9 +69,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_04_142845) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "favourites", "id_ags"
-  add_foreign_key "favourites", "id_goods", column: "id_goods_id"
-  add_foreign_key "operations", "id_ags"
-  add_foreign_key "operations", "id_goods", column: "id_goods_id"
-  add_foreign_key "operations", "id_whs"
+  add_foreign_key "favourites", "ags"
+  add_foreign_key "favourites", "goods", column: "goods_id"
+  add_foreign_key "goods_whs", "goods", column: "goods_id"
+  add_foreign_key "goods_whs", "whs"
+  add_foreign_key "operations", "ags"
+  add_foreign_key "operations", "goods", column: "goods_id"
+  add_foreign_key "operations", "whs"
 end

@@ -1,4 +1,4 @@
 class GoodsWh < ApplicationRecord
-  belongs_to :wh
+  has_many :warehouse
   has_many :goods
 end

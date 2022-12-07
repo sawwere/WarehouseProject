@@ -5,4 +5,5 @@ class Agent < ApplicationRecord
   has_secure_password
 
   belongs_to :favourite
+  belongs_to :operation
 end

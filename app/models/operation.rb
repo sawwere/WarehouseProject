@@ -1,5 +1,5 @@
 class Operation < ApplicationRecord
-  belongs_to :id_goods
+  has_many :id_goods
   belongs_to :id_ag
-  belongs_to :id_wh
+  has_many :id_wh
 end

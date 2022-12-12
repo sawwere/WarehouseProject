@@ -1,4 +1,4 @@
 class Warehouse < ApplicationRecord
-  has_many :goods_wh
-  has_many :operation
+  has_many :goods_whs
+  has_many :operations
 end

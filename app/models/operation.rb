@@ -1,5 +1,5 @@
 class Operation < ApplicationRecord
-  has_many :goods
+  belongs_to :good
   belongs_to :agent
-  has_many :warehouses
+  belongs_to :warehouse
 end

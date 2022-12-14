@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class='controls'>
+  <div class='controls_container'>
+    <%= link_to 'show operations history', '/show_history', method: :get %>
+  </div>
+  <div class='controls_container'>
+    <%= link_to 'show remains', '/show_remains', method: :get %>
+  </div>
+  <div class='controls_container'>
+    <%= link_to 'show favourites', '/show_favourites', method: :get %>
+  </div>
+  <div class='controls_container'>
+    <%= link_to 'show info', '/show_info', method: :get %>
+  </div>
+  <div class='controls_container'>
+    <%= link_to 'execute operation', '/add_operation', method: :get %>
+  </div>
+</div>
+<hr>
+</body>
+</html>

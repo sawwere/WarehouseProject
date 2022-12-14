@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<table>
+  <thead>
+  <tr>
+    <th colspan="2">Список остатков на складах:</th>
+  </tr>
+  </thead>
+  <tr><th>Товар</th><th>Склад</th><th>Количество</th></tr>
+  <%- @remains.each do |r| %>
+    <tr><td>r.goods_id</td><td>op.wh_id</td><td>op.quantity</td></tr>
+  <%-end%>
+</table>
+
+<hr>
+</body>
+</html>

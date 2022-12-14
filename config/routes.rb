@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   root "home#index"
 
   get "/show_history", to: "warehouse#history"
+  get "/show_remains", to: "warehouse#remains"
   get "/show_favourites", to: "favourite#favourite"
   get "/show_info", to: "agent#info"
 

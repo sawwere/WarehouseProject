@@ -5,19 +5,16 @@
     <title>Title</title>
 </head>
 <body>
-<div class="list">
-  <div class="actual">
-    <p>Список операций:</p>
-    <ul>
-      <%- @operations.each do |op| %>
-        <li><%= op.op_date%></li>
-      <%-end%>
-    </ul>
-  </div>
-</div>
 <table>
-  <tr><th>Столбец1</th><th>Столбец2</th></tr> <!--ряд с ячейками заголовков-->
-  <tr><td>данные</td><td>данные</td></tr> <!--ряд с ячейками тела таблицы-->
+  <thead>
+  <tr>
+    <th colspan="2">Список операций:</th>
+  </tr>
+  </thead>
+  <tr><th>Товар</th><th>Склад</th><th>Агент</th><th>Тип</th><th>Количество</th><th>Цена</th><th>Дата</th></tr>
+  <%- @operations.each do |op| %>
+    <tr><td>op.goods_id</td><td>op.wh_id</td><td>op.ag_id</td><td>op.typeop</td><td>op.quantity</td><td>op.price</td><td>op.op_date</td></tr>
+  <%-end%>
 </table>
 <hr>
 </body>

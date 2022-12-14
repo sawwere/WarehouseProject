@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div class="list">
+  <div class="actual">
+    <p>Информация о пользователе:</p>
+    <ul>
+      <%- @infos.each do |a| %>
+        <li><%= a.name%></li>
+      <%-end%>
+    </ul>
+  </div>
+</div>
+<table>
+  <tr><th>Столбец1</th><th>Столбец2</th></tr> <!--ряд с ячейками заголовков-->
+  <tr><td>данные</td><td>данные</td></tr> <!--ряд с ячейками тела таблицы-->
+</table>
+<hr>
+</body>
+</html>

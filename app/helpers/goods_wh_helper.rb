@@ -1,0 +1,2 @@
+module GoodsWhHelper
+end

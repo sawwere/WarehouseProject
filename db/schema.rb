@@ -13,7 +13,7 @@
 ActiveRecord::Schema[7.0].define(version: 2022_12_06_154440) do
   create_table "agents", force: :cascade do |t|
     t.string "name"
-    t.string "password"
+    t.string "password_digest"
     t.string "email"
     t.string "phone"
     t.string "town"

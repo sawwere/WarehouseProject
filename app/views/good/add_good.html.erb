@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<%= form_tag('/create_good') do -%>
+
+  <div class='form-field'>
+    <%=label_tag 'nomenclature', 'Название' %>
+    <%=text_field_tag 'answer[nomenclature]'%>
+  </div>
+  <div class='form-field'>
+    <%=label_tag 'measure', 'Размерность' %>
+    <%=text_field_tag 'answer[measure]'%>
+  </div>
+  <div class='form-field'>
+    <%= submit_tag 'Добавить' %>
+  </div>
+<% end -%>
+
+</body>
+</html>

@@ -12,4 +12,7 @@ Rails.application.routes.draw do
   get "/add_wh", to: "warehouse#add_warehouse"
   post "/create_wh", to: "warehouse#add_wh"
 
+  get "/add_good", to: "good#add_good"
+  post "/create_good", to: "good#create_good"
+
 end

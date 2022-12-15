@@ -7,8 +7,8 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-#Agent.create(name: "test", password: "test_1234", email: "sawer_13@mail.ru", phone: "880005553535",
-#          town: "Ростов")
+Agent.create(name: "test1", password: "test_1234", email: "example@snail.ru", phone: "880005553535",
+       town: "Ростов")
 
 Good.create(nomenclature: "Квас", measure: "л")
 Warehouse.create(name: "Склад 24", town: "Ростов")

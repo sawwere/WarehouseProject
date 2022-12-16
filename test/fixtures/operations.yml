@@ -1,19 +1,19 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  id_goods: one
-  id_ag: one
-  id_wh: one
   typeop: 1
   quantity: 1
   price: 1.5
   op_date: MyText
+  agents: one
+  goods: one
+  warehouses: one
 
 two:
-  id_goods: two
-  id_ag: two
-  id_wh: two
   typeop: 1
   quantity: 1
   price: 1.5
   op_date: MyText
+  agents: two
+  goods: two
+  warehouses: two

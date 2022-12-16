@@ -4,6 +4,39 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
+<%= form_for :operation, class: 'new_operation_form' do |f| %>
+
+  <div class="input_item">
+    <%= label_tag :good, 'Товар' %>
+    <%= f.text_field :good %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :wh, 'Склад' %>
+    <%= f.text_field :wh %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :typeop, 'Тип' %>
+    <%= f.text_field :typeop %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :quantity, 'Количество' %>
+    <%= f.number_field :quantity %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :price, 'Цена' %>
+    <%= f.number_field :price %>
+  </div>
+  <div class="input_item">
+    <%= label_tag :op_date, 'Дата' %>
+    <%= f.date_field :op_date %>
+  </div>
+  <div class="input_item">
+    <%= f.submit 'Добавить' %>
+  </div>
+<% end %>
+
+
 <body>
 <table>
   <thead>

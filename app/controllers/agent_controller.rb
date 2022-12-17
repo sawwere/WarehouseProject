@@ -2,6 +2,8 @@ class AgentController < ApplicationController
 
   def info
     @infos = Agent.all
+    @user_id = session[:user_id]
+    @user = Agent.find(@user_id)
   end
   def show
     @user = Agent.find(params[:id])
@@ -16,9 +18,25 @@ class AgentController < ApplicationController
     if answer_params_agent
       create
       redirect_to "/agent/#{user.id}"
-
     end
+  end
 
+  def change_town
+    @user_id = session[:user_id]
+    @user = Agent.find(@user_id)
+    if user_params_town && @user.authenticate(user_params_town[:password])
+      Agent.update(session[:user_id], town: user_params_town[:town])
+    end
+    redirect_to "/show_info"
+  end
+
+  def change_phone
+    @user_id = session[:user_id]
+    @user = Agent.find(@user_id)
+    if user_params_phone && @user.authenticate(user_params_phone[:password])
+      Agent.update(session[:user_id], phone: user_params_phone[:phone])
+    end
+    redirect_to "/show_info"
   end
 
   private
@@ -26,4 +44,13 @@ class AgentController < ApplicationController
   def answer_params_agent
     params.require(:answer).permit(:name, :password_digest,:email,:phone,:town)
   end
+
+  def user_params_town
+    params.require(:user).permit(:town, :password)
+  end
+
+  def user_params_phone
+    params.require(:user).permit(:phone, :password)
+  end
+
 end

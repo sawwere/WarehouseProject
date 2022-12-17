@@ -8,17 +8,57 @@
 <div class="list">
   <div class="actual">
     <p>Информация о пользователе:</p>
-    <ul>
-      <%- @infos.each do |a| %>
-        <li><%= a.name%></li>
-      <%-end%>
-    </ul>
+    <p>Имя: <%= @user.name%></p>
+
+    <p>Город: <%= @user.town%></p>
+    <button onclick="hide('t_change_town')">Изменить город</button>
+    <div id="t_change_town" style="display:none">
+      <%= form_for :user, class: 'user_data_form', url: '/change_town' do |f| %>
+        <div class="input_item">
+          <%=label_tag :town, 'Новый город' %>
+          <%= f.text_field :town%>
+        </div>
+        <div class="input_item">
+          <%= label_tag :password, 'Пароль' %>
+          <%= f.password_field :password %>
+        </div>
+        <div class="input_item">
+          <%= f.submit 'Изменить' %>
+        </div>
+      <% end %>
+    </div>
+
+    <p>Телефон: <%= @user.phone%></p>
+    <button onclick="hide('t_change_phone')">Изменить телефон</button>
+    <div id="t_change_phone" style="display:none">
+      <%= form_for :user, class: 'user_data_form', url: '/change_phone' do |f| %>
+        <div class="input_item">
+          <%=label_tag :phone, 'Новый телефон' %>
+          <%= f.text_field :phone%>
+        </div>
+        <div class="input_item">
+          <%= label_tag :password, 'Пароль' %>
+          <%= f.password_field :password %>
+        </div>
+        <div class="input_item">
+          <%= f.submit 'Изменить' %>
+        </div>
+      <% end %>
+    </div>
+
+
   </div>
 </div>
-<table>
-  <tr><th>Столбец1</th><th>Столбец2</th></tr> <!--ряд с ячейками заголовков-->
-  <tr><td>данные</td><td>данные</td></tr> <!--ряд с ячейками тела таблицы-->
-</table>
-<hr>
 </body>
 </html>
+
+
+
+<script>
+    function hide(id){
+        elem = document.getElementById(id);
+        state = elem.style.display;
+        if (state =='') elem.style.display='none';
+        else elem.style.display='';
+    }
+</script>

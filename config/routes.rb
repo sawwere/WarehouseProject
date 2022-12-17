@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get "/manage_operations", to: "operation#history"
   post "/manage_operations", to: "operation#create"
+
   get "/show_remains", to: "goods_wh#remains"
   get "/show_favourites", to: "favourite#favourite"
   get "/show_info", to: "agent#info"
@@ -26,6 +27,7 @@ Rails.application.routes.draw do
   resources :good
   resources :warehouse
 
-
+  post '/change_town', to: 'agent#change_town'
+  post '/change_phone', to: 'agent#change_phone'
 
 end

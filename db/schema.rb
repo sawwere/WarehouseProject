@@ -38,13 +38,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_102115) do
   end
 
   create_table "goods_whs", force: :cascade do |t|
-    t.integer "wh_id", null: false
-    t.integer "goods_id", null: false
+    t.integer "good_id", null: false
+    t.integer "warehouse_id", null: false
     t.integer "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["goods_id"], name: "index_goods_whs_on_goods_id"
-    t.index ["wh_id"], name: "index_goods_whs_on_wh_id"
+    t.index ["good_id"], name: "index_goods_whs_on_good_id"
+    t.index ["warehouse_id"], name: "index_goods_whs_on_warehouse_id"
   end
 
   create_table "operations", force: :cascade do |t|
@@ -78,8 +78,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_102115) do
 
   add_foreign_key "favourites", "ags"
   add_foreign_key "favourites", "goods", column: "goods_id"
-  add_foreign_key "goods_whs", "goods", column: "goods_id"
-  add_foreign_key "goods_whs", "whs"
+  add_foreign_key "goods_whs", "goods"
+  add_foreign_key "goods_whs", "warehouses"
   add_foreign_key "operations", "agents"
   add_foreign_key "operations", "goods"
   add_foreign_key "operations", "type_operations"

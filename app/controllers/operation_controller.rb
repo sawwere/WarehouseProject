@@ -24,13 +24,11 @@ class OperationController < ApplicationController
           flash[:success] = "Operation committed"
         end
       end
-      # redirect_to "/manage_operations"
+      #redirect_to "/manage_operations"
     end
   end
 
-  def after_save
-    # TODO add remains to goods_wh
-  end
+
 
   def operation_params
     #@hs.require(:operation).permit(:ag_id, :wh_id, :goods_id, :typeop, :quantity, :price, :op_date)
@@ -40,4 +38,5 @@ class OperationController < ApplicationController
   def history
     @operations = Operation.where(agent_id: session[:user_id])
   end
+
 end

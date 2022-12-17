@@ -1,0 +1,42 @@
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    text-align: left;
+    border-collapse: separate;
+    border-spacing: 5px;
+    background: #f5f8f7;
+    color: #312828;
+    border: 16px solid #d9a815;
+    border-radius: 20px;
+}
+head {
+    color: #e30ae3;
+}
+input[type='number']{
+    width: 85%;
+}
+input[type='date']{
+    width: 85%;
+}
+
+select {
+    width: 85%;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+select option {
+    width: 85%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+th {
+    font-size: 18px;
+    padding: 10px;
+}
+td {
+    padding: 10px;
+    border: 10px #B00100;
+}

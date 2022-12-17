@@ -4,14 +4,14 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
    root "home#index"
 
-  get "/show_history", to: "operation#history"
-  post "/show_history", to: "operation#create"
+  get "/manage_operations", to: "operation#history"
+  post "/manage_operations", to: "operation#create"
   get "/show_remains", to: "goods_wh#remains"
   get "/show_favourites", to: "favourite#favourite"
   get "/show_info", to: "agent#info"
 
-  get "/add_wh", to: "warehouse#add_warehouse"
-  post "/create_wh", to: "warehouse#add_wh"
+  get "/manage_wh", to: "warehouse#list"
+  post "//manage_wh", to: "warehouse#add_wh"
 
   get "/add_good", to: "good#add_good"
   post "/create_good", to: "good#create_good"

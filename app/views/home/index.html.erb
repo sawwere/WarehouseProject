@@ -7,7 +7,7 @@
 <body>
 <div class='controls'>
   <div class='controls_container'>
-    <%= link_to 'show operations history', '/show_history', method: :get %>
+    <%= link_to 'Operations menu', '/manage_operations', method: :get %>
   </div>
   <div class='controls_container'>
     <%= link_to 'show remains', '/show_remains', method: :get %>
@@ -18,14 +18,11 @@
   <div class='controls_container'>
     <%= link_to 'show information', '/show_info', method: :get %>
   </div>
-  <div class='controls_container'>
-    <%= link_to 'execute operation', '/add_operation', method: :get %>
-  </div>
 </div>
 <hr>
 <div class='controls_add'>
   <div class='controls_container'>
-    <%= link_to 'add warehouse', '/add_wh', method: :get %>
+    <%= link_to 'Warehouses menu', '/manage_wh', method: :get %>
   </div>
   <div class='controls_container'>
     <%= link_to 'add good', '/add_good', method: :get %>

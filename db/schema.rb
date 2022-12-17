@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_06_154440) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_17_102115) do
   create_table "agents", force: :cascade do |t|
     t.string "name"
     t.string "password_digest"
@@ -48,7 +48,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_154440) do
   end
 
   create_table "operations", force: :cascade do |t|
-    t.integer "typeop"
     t.integer "quantity"
     t.float "price"
     t.text "op_date"
@@ -57,9 +56,17 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_154440) do
     t.integer "warehouse_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "type_operation_id", null: false
     t.index ["agent_id"], name: "index_operations_on_agent_id"
     t.index ["good_id"], name: "index_operations_on_good_id"
+    t.index ["type_operation_id"], name: "index_operations_on_type_operation_id"
     t.index ["warehouse_id"], name: "index_operations_on_warehouse_id"
+  end
+
+  create_table "type_operations", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "warehouses", force: :cascade do |t|
@@ -75,5 +82,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_06_154440) do
   add_foreign_key "goods_whs", "whs"
   add_foreign_key "operations", "agents"
   add_foreign_key "operations", "goods"
+  add_foreign_key "operations", "type_operations"
   add_foreign_key "operations", "warehouses"
 end

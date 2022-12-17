@@ -3,52 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <%= stylesheet_link_tag "operation_history_table.css", "data-turbo-track": "reload" %>
+
 </head>
-
-<%= form_for :operation, class: 'new_operation_form' do |f| %>
-
-  <div class="input_item">
-    <%= label_tag :good, 'Товар' %>
-    <%= f.text_field :good %>
-  </div>
-  <div class="input_item">
-    <%= label_tag :wh, 'Склад' %>
-    <%= f.text_field :wh %>
-  </div>
-  <div class="input_item">
-    <%= label_tag :typeop, 'Тип' %>
-    <%= f.text_field :typeop %>
-  </div>
-  <div class="input_item">
-    <%= label_tag :quantity, 'Количество' %>
-    <%= f.number_field :quantity %>
-  </div>
-  <div class="input_item">
-    <%= label_tag :price, 'Цена' %>
-    <%= f.number_field :price %>
-  </div>
-  <div class="input_item">
-    <%= label_tag :op_date, 'Дата' %>
-    <%= f.date_field :op_date %>
-  </div>
-  <div class="input_item">
-    <%= f.submit 'Добавить' %>
-  </div>
-<% end %>
-
-
 <body>
+
 <table>
   <thead>
-  <tr>
-    <th colspan="2">Список операций:</th>
-  </tr>
+    <tr>
+      <th colspan="2">Добавить операцию:</th>
+    </tr>
   </thead>
-  <tr><th>Товар</th><th>Склад</th><th>Агент</th><th>Тип</th><th>Количество</th><th>Цена</th><th>Дата</th></tr>
-  <%- @operations.each do |op| %>
-    <tr><td>op.goods_id</td><td>op.wh_id</td><td>op.ag_id</td><td>op.typeop</td><td>op.quantity</td><td>op.price</td><td>op.op_date</td></tr>
-  <%-end%>
+  <tr>
+<%= form_for :operation, class: 'new_operation_form' do |f| %>
+    <th>
+      <%= label_tag :good, 'Товар' %>
+      <%= f.select :good, Good.all.collect { |g| g.nomenclature  } %>
+    </th>
+  <th>
+    <%= label_tag :wh, 'Склад' %>
+    <%= f.select :wh, Warehouse.all.collect { |w| w.name } %>
+  </th>
+  <th>
+    <%= label_tag :typeop, 'Тип' %>
+    <%= f.select :typeop, TypeOperation.all.collect { |w| w.title } %>
+  </th>
+  <th>
+    <%= label_tag :quantity, 'Количество' %>
+    <%= f.number_field :quantity %>
+  </th>
+  <th>
+    <%= label_tag :price, 'Цена' %>
+    <%= f.number_field :price %>
+  </th>
+  <th>
+    <%= label_tag :op_date, 'Дата' %>
+    <%= f.date_field :op_date %>
+  </th>
+  <th>
+    <%= f.submit 'Добавить' %>
+  </th>
+<% end %>
+  </tr>
 </table>
-<hr>
+
+
+  <table>
+    <thead>
+    <tr>
+      <th colspan="2">История операций:</th>
+    </tr>
+    </thead>
+    <tr><th>Товар</th><th>Склад</th><th>Агент</th><th>Тип</th><th>Количество</th><th>Цена</th><th>Дата</th></tr>
+    <%- @operations.each do |op| %>
+      <tr><td><%= "#{op.good.nomenclature}" %></td><td><%= "#{op.warehouse.name}" %></td><td><%= "#{op.agent.name}" %></td><td><%= "#{op.type_operation.title}" %></td><td><%= "#{op.quantity}" %></td><td><%= "#{op.price}" %></td><td><%= "#{op.op_date}" %></td></tr>
+    <%-end%>
+  </table>
+
 </body>
 </html>

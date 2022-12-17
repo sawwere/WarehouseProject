@@ -5,23 +5,31 @@ class OperationController < ApplicationController
     @user = Agent.find(@user_id)
     @good = Good.find_by_nomenclature(params[:operation][:good])
     @wh = Warehouse.find_by_name(params[:operation][:wh])
-    @typeop = params[:operation][:typeop]
+    @typeop = TypeOperation.find_by_title(params[:operation][:typeop])
     @quantity = params[:operation][:quantity]
     @price = params[:operation][:price]
     @op_date = params[:operation][:op_date]
-
-    p @op_date
     @hs = {good_id: @good.id,
-                        agent_id: @user.id,
+           agent_id: @user.id,
            warehouse_id: @wh.id,
-                        typeop: @typeop,
-                        quantity: @quantity,
-                        price: @price,
-                        op_date: @op_date}
-    @op = Operation.new(@hs)
-    if @op.save
-      flash[:success] = "Operation committed"
+           type_operation_id: @typeop.id,
+           quantity: @quantity,
+           price: @price,
+           op_date: @op_date}
+    @operation = Operation.new(@hs)
+    if @operation.save
+
+      respond_to do |format|
+        format.html do
+          flash[:success] = "Operation committed"
+        end
+      end
+      redirect_to "/manage_operations"
     end
+  end
+
+  def after_save
+    # TODO add remains to goods_wh
   end
 
   def operation_params
@@ -30,6 +38,6 @@ class OperationController < ApplicationController
   end
 
   def history
-    @operations = Operation.all
+    @operations = Operation.where(agent_id: session[:user_id])
   end
 end

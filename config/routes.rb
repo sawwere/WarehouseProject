@@ -5,7 +5,7 @@ Rails.application.routes.draw do
    root "home#index"
 
   get "/manage_operations", to: "operation#history"
-  post "/manage_operations", to: "operation#create"
+  post "/create_operation", to: "operation#create"
 
   get "/show_remains", to: "goods_wh#remains"
   get "/show_favourites", to: "favourite#favourite"

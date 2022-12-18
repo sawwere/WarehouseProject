@@ -1,5 +1,5 @@
 class OperationController < ApplicationController
-
+  before_action :authenticate_agent!
   def create
     @user_id = session[:user_id]
     @user = Agent.find(@user_id)

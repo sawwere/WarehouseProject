@@ -1,5 +1,5 @@
 class AgentController < ApplicationController
-
+  before_action :authenticate_agent!
   def info
     @infos = Agent.all
     @user_id = session[:user_id]

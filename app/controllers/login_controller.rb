@@ -7,7 +7,7 @@ class LoginController < ApplicationController
     user = Agent.find_by_email(user_params[:email])
     if user.present? && user.authenticate(user_params[:password])
       session[:user_id] = user.id
-      redirect_to root_path
+      redirect_to "/show_info"
     else
       flash[:error] = ['Invalid Credentials']
       redirect_to "/login"

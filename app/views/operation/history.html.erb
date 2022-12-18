@@ -22,7 +22,7 @@
     </tr>
     </thead>
     <tr>
-        <%= form_for :operation, remote:true, url: '/create_operation'  do |f| %>
+        <%= form_for :operation, remote:true do |f| %>
         <th>
             <%= f.select :good, Good.all.collect { |g| g.nomenclature  }, value: 'RRR'  %>
         </th>

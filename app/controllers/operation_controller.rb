@@ -16,14 +16,9 @@ class OperationController < ApplicationController
            quantity: @quantity,
            price: @price,
            op_date: @op_date}
-    @operation = Operation.new(@hs)
-    if @operation.save
-
-      respond_to do |format|
-        format.html { redirect_to "/manage_operations" }
-        format.js
-      end
-    end
+    Operation.create(@hs)
+    # TODO Сделать перенапрвление на другую страницу(ошибка с добавлением, нужно постоянно обновлять страницу)
+    redirect_to "/manage_operations"
   end
 
   def operation_params

@@ -6,13 +6,15 @@
 </head>
 <body>
 
-<table>
-  <thead>
+<table class="table caption-top table-bordered">
+  <caption><h2>Список остатков на складах</h2></caption>
+  <thead class="table-light">
   <tr>
-    <th colspan="2">Список остатков на складах:</th>
+    <th><%= label_tag :good, 'Товар' %></th>
+    <th><%= label_tag :wh, 'Склад' %></th>
+    <th><%= label_tag :quantity, 'Количество' %></th>
   </tr>
   </thead>
-  <tr><th>Товар</th><th>Склад</th><th>Количество</th>
   <%- @goods_whs.each do |gw| %>
     <tr><td><%= "#{gw.good.nomenclature}" %></td><td><%= "#{gw.warehouse.name}" %></td><td><%= "#{gw.quantity}" %></td>
   <%-end%>

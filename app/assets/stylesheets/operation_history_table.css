@@ -1,25 +1,20 @@
 
-table {
+table.operation_table {
     table-layout: fixed;
     width: 100%;
     text-align: left;
     border-collapse: collapse;
     background: #f5f8f7;
     color: #312828;
-    border: 16px solid #d9a815;
-    border-radius: 20px;
-}
-head {
-    color: #e30ae3;
 }
 input[type='number']{
-    width: 85%;
+    width: 95%;
 }
 input[type='date']{
-    width: 85%;
+    width: 95%;
 }
 
-select {
+select{
     width: 85%;
     overflow:hidden;
     white-space:nowrap;
@@ -31,10 +26,10 @@ select option {
     overflow: hidden;
 }
 
-th {
+th.operation_table {
     font-size: 18px;
     padding: 10px;
 }
-td {
+td.operation_table {
     padding: 10px;
 }

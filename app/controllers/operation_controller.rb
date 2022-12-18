@@ -20,15 +20,11 @@ class OperationController < ApplicationController
     if @operation.save
 
       respond_to do |format|
-        format.html do
-          flash[:success] = "Operation committed"
-        end
+        format.html { redirect_to "/manage_operations" }
+        format.js
       end
-      redirect_to "/manage_operations"
     end
   end
-
-
 
   def operation_params
     #@hs.require(:operation).permit(:ag_id, :wh_id, :goods_id, :typeop, :quantity, :price, :op_date)

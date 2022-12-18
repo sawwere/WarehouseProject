@@ -1,12 +1,10 @@
 <%= render 'shared/errors' %>
-<%= form_for :user, class: 'user_data_form' do |f| %>
+<%= bootstrap_form_for :user, class: 'user_data_form' do |f| %>
   <div class="input_item">
-    <%= label_tag :email, 'Email' %>
-    <%= f.email_field :email %>
+    <%= f.email_field :email, label: "Почта" %>
   </div>
   <div class="input_item">
-    <%= label_tag :password, 'Пароль' %>
-    <%= f.password_field :password %>
+    <%= f.password_field :password, label: "Пароль" %>
   </div>
   <div class="input_item">
     <%= f.submit 'Войти' %>

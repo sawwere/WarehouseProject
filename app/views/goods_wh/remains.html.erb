@@ -12,9 +12,9 @@
     <th colspan="2">Список остатков на складах:</th>
   </tr>
   </thead>
-  <tr><th>Товар</th><th>Склад</th><th>Количество</th></tr>
-  <%- @remains.each do |r| %>
-    <tr><td>r.goods_id</td><td>op.wh_id</td><td>op.quantity</td></tr>
+  <tr><th>Товар</th><th>Склад</th><th>Количество</th>
+  <%- @goods_whs.each do |gw| %>
+    <tr><td><%= "#{gw.good.nomenclature}" %></td><td><%= "#{gw.warehouse.name}" %></td><td><%= "#{gw.quantity}" %></td>
   <%-end%>
 </table>
 

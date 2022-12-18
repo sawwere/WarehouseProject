@@ -1,6 +1,6 @@
 class GoodsWh < ApplicationRecord
-  has_many :warehouses
-  has_many :goods
+  belongs_to :warehouse
+  belongs_to :good
 
   validates :quantity, :numericality => { :greater_than => 0 }
   validates :warehouse_id, uniqueness: { scope: [:good_id] }

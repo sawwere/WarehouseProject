@@ -1,7 +1,7 @@
 class GoodsWhController < ApplicationController
 
   def remains
-    @remains = GoodsWh.all
+    @goods_whs = GoodsWh.all
   end
 
 end

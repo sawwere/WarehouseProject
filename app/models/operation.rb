@@ -34,7 +34,6 @@ class Operation < ApplicationRecord
     else
       @multiplier = TypeOperation.find(self.type_operation_id).title == "Поставка" ? 1 : -1
       @new_q = self.quantity * @multiplier + @gwh.first.quantity
-      p @new_q
       if @new_q == 0
         GoodsWh.destroy(@gwh.first.id)
       elsif @new_q > 0

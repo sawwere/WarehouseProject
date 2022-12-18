@@ -24,7 +24,7 @@ class OperationController < ApplicationController
           flash[:success] = "Operation committed"
         end
       end
-      #redirect_to "/manage_operations"
+      redirect_to "/manage_operations"
     end
   end
 

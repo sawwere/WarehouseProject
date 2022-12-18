@@ -3,8 +3,7 @@ table {
     table-layout: fixed;
     width: 100%;
     text-align: left;
-    border-collapse: separate;
-    border-spacing: 5px;
+    border-collapse: collapse;
     background: #f5f8f7;
     color: #312828;
     border: 16px solid #d9a815;
@@ -38,5 +37,4 @@ th {
 }
 td {
     padding: 10px;
-    border: 10px #B00100;
 }

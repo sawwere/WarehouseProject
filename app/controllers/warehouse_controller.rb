@@ -5,19 +5,18 @@ class WarehouseController < ApplicationController
   end
 
   def create
-    Warehouse.create(answer_params_wh)
-  end
+    wh = Warehouse.new(params_wh)
+    if wh.save
 
-  def add_wh
-    if answer_params_wh
-      create
-      redirect_to "/"
+    else
+      flash[:error] = wh.errors.full_messages
     end
+    redirect_to manage_warehouse_url
   end
 
   private
 
-  def answer_params_wh
-    params.require(:answer).permit(:name, :town)
+  def params_wh
+    params.require(:warehouse).permit(:name, :town)
   end
 end

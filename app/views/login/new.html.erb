@@ -1,10 +1,10 @@
 <%= render 'shared/errors' %>
 <%= bootstrap_form_for :user, class: 'user_data_form' do |f| %>
   <div class="input_item">
-    <%= f.email_field :email, label: "Почта" %>
+    <%= f.email_field :email, label: "Почта", width: '50' %>
   </div>
   <div class="input_item">
-    <%= f.password_field :password, label: "Пароль" %>
+    <%= f.password_field :password, label: "Пароль", width: '50' %>
   </div>
   <div class="input_item">
     <%= f.submit 'Войти' %>

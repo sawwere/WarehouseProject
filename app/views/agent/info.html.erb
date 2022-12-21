@@ -11,16 +11,15 @@
     <p>Имя: <%= @user.name%></p>
 
     <p>Город: <%= @user.town%></p>
-    <button onclick="hide('t_change_town')">Изменить город</button>
+    <button type="button" class="btn btn-primary" onclick="hide('t_change_town')">Изменить город</button>
     <div id="t_change_town" style="display:none">
-      <%= form_for :user, class: 'user_data_form', url: '/change_town' do |f| %>
+      <%= render 'shared/errors' %>
+      <%= bootstrap_form_for :user, class: 'user_data_form', url: '/change_town' do |f| %>
         <div class="input_item">
-          <%=label_tag :town, 'Новый город' %>
-          <%= f.text_field :town%>
+          <%= f.text_field :town, label: 'Новый город' %>
         </div>
         <div class="input_item">
-          <%= label_tag :password, 'Пароль' %>
-          <%= f.text_field :password %>
+          <%= f.text_field :password, label: 'Пароль' %>
         </div>
         <div class="input_item">
           <%= f.submit 'Изменить' %>
@@ -29,16 +28,14 @@
     </div>
 
     <p>Телефон: <%= @user.phone%></p>
-    <button onclick="hide('t_change_phone')">Изменить телефон</button>
+    <button type="button" class="btn btn-primary" onclick="hide('t_change_phone')">Изменить телефон</button>
     <div id="t_change_phone" style="display:none">
-      <%= form_for :user, class: 'user_data_form', url: '/change_phone' do |f| %>
+      <%= bootstrap_form_for :user, class: 'user_data_form', url: '/change_phone' do |f| %>
         <div class="input_item">
-          <%=label_tag :phone, 'Новый телефон' %>
-          <%= f.text_field :phone%>
+          <%= f.text_field :phone, label: 'Новый телефон' %>
         </div>
         <div class="input_item">
-          <%= label_tag :password, 'Пароль' %>
-          <%= f.text_field :password %>
+          <%= f.text_field :password, label: 'Пароль' %>
         </div>
         <div class="input_item">
           <%= f.submit 'Изменить' %>

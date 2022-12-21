@@ -25,7 +25,9 @@ class AgentController < ApplicationController
     @user_id = session[:user_id]
     @user = Agent.find(@user_id)
     if user_params_town && @user.authenticate(user_params_town[:password])
-      Agent.update(session[:user_id], town: user_params_town[:town])
+      @user = Agent.update(session[:user_id], town: user_params_town[:town])
+    else
+      flash[:error] = flash[:error] = ['Invalid Credentials']
     end
     redirect_to "/show_info"
   end
@@ -35,8 +37,10 @@ class AgentController < ApplicationController
     @user = Agent.find(@user_id)
     if user_params_phone && @user.authenticate(user_params_phone[:password])
       Agent.update(session[:user_id], phone: user_params_phone[:phone])
+      redirect_to "/show_info"
+    else
+      flash[:error] = flash[:error] = ['Invalid Credentials']
     end
-    redirect_to "/show_info"
   end
 
   private

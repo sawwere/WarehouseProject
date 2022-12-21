@@ -1,13 +1,12 @@
 class ApplicationController < ActionController::Base
+  def current_user
+    return unless session[:user_id]
+    @current_user ||= Agent.find(session[:user_id])
+  end
+
   protected
   def authenticate_agent!
-    p session[:user_id]
-    if session[:user_id]!=nil
-      #super
-    else
-      redirect_to login_path, :notice => 'if you want to add a notice'
-      ## if you want render 404 page
-      ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
-    end
+    @current_user = Agent.find_by_id(session[:user_id])
+    redirect_to login_path unless @current_user.present?
   end
 end

@@ -5,20 +5,18 @@
   <title>Title</title>
 </head>
 <body>
-<%= form_tag('/create_wh') do -%>
-
-  <div class='form-field'>
-    <%=label_tag 'Name', 'имя' %>
-    <%=text_field_tag 'answer[name]'%>
+<%= render 'shared/errors' %>
+<%= bootstrap_form_for :warehouse, class: 'warehouse_data_form' do |f| %>
+  <div class="input_item">
+    <%= f.text_field :name, label: "Название", width: '50' %>
   </div>
-  <div class='form-field'>
-    <%=label_tag 'Town', 'город' %>
-    <%=text_field_tag 'answer[town]'%>
+  <div class="input_item">
+    <%= f.text_field :town, label: "Город", width: '50' %>
   </div>
-  <div class='form-field'>
-    <%= submit_tag 'Отправить' %>
+  <div class="input_item">
+    <%= f.submit 'Добавить' %>
   </div>
-<% end -%>
+<% end %>
 </body>
 </html>
 

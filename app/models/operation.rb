@@ -20,7 +20,7 @@ class Operation < ApplicationRecord
     end
     @gwh = GoodsWh.where(:good_id => self.good_id, :warehouse_id => self.warehouse_id)
     if @gwh.count == 0 or @gwh.first.quantity < self.quantity
-      errors.add(:date, 'there are no such goods in warehouse')
+      errors.add(:type_operation, 'there are no such goods in warehouse')
       return false
     end
     true
@@ -39,7 +39,7 @@ class Operation < ApplicationRecord
       elsif @new_q > 0
         GoodsWh.update(@gwh.first.id, quantity: @new_q)
       else
-        errors.add(:date, 'there are no such goods in warehouse')
+        errors.add(:type_operation, 'there are no such goods in warehouse')
       end
     end
   end

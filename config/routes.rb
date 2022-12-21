@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   get "/show_favourites", to: "favourite#favourite"
   get "/show_info", to: "agent#info"
 
-  get "/manage_wh", to: "warehouse#list"
-  post "//manage_wh", to: "warehouse#add_wh"
+  get "/manage_warehouse", to: "warehouse#list"
+  post "/manage_warehouse", to: "warehouse#create"
 
   get "/add_good", to: "good#add_good"
   post "/create_good", to: "good#create_good"

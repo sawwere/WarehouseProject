@@ -6,6 +6,8 @@
 </head>
 <body>
 
+
+<h2><caption> Добавить товар </h2></caption>
 <%= form_tag('/create_good') do -%>
 
   <div class='form-field'>
@@ -20,6 +22,32 @@
     <%= submit_tag 'Добавить' %>
   </div>
 <% end -%>
+
+<table class="table table-bordered caption-top">
+  <caption><h2>Все товары</h2></caption>
+  <thead>
+  <tr>
+    <th>Товар</th>
+    <th>Единица измерения</th>
+    <th>Добавить в избранное</th>
+  </tr>
+  </thead>
+
+
+  <%= form_for :favourite, remote:true, url: '/create_favourites' do |f| %>
+    <%- @goods.each do |g| %>
+      <tr>
+          <td> <%= "#{g.nomenclature}" %> </td>
+          <td> <%= "#{g.measure}" %> </td>
+          <td> <input type="checkbox" id="nomenclature" name="nomenclature" value=<%= "#{g.nomenclature}" %> /> </td>
+      </tr>
+    <%-end%>
+    <th>
+      <%= f.submit 'Добавить' %>
+    </th>
+  <% end %>
+
+</table>
 
 </body>
 </html>

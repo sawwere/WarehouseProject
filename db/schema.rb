@@ -22,12 +22,12 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_102115) do
   end
 
   create_table "favourites", force: :cascade do |t|
-    t.integer "goods_id", null: false
-    t.integer "ag_id", null: false
+    t.integer "good_id", null: false
+    t.integer "agent_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["ag_id"], name: "index_favourites_on_ag_id"
-    t.index ["goods_id"], name: "index_favourites_on_goods_id"
+    t.index ["agent_id"], name: "index_favourites_on_agent_id"
+    t.index ["good_id"], name: "index_favourites_on_good_id"
   end
 
   create_table "goods", force: :cascade do |t|
@@ -76,8 +76,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_17_102115) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "favourites", "ags"
-  add_foreign_key "favourites", "goods", column: "goods_id"
+  add_foreign_key "favourites", "agents"
+  add_foreign_key "favourites", "goods"
   add_foreign_key "goods_whs", "goods"
   add_foreign_key "goods_whs", "warehouses"
   add_foreign_key "operations", "agents"

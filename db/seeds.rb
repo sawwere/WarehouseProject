@@ -26,5 +26,8 @@ Warehouse.create(name: "Склад на Шолохова", town: "Ростов")
 Warehouse.create(name: "Разгрузочная станция 1", town: "Азов")
 Warehouse.create(name: "Подвальное помещение на Зорге", town: "Ростов")
 
+# Favourite.create(good_id: 1, agent_id: 2)
+
+
 
 

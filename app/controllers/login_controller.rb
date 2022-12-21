@@ -9,7 +9,7 @@ class LoginController < ApplicationController
       session[:user_id] = user.id
       redirect_to "/show_info"
     else
-      flash[:error] = ['Invalid Credentials']
+      flash[:error] = ['Invalid Password']
       redirect_to "/login"
     end
   end

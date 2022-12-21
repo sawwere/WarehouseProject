@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   post '/change_town', to: 'agent#change_town'
   post '/change_phone', to: 'agent#change_phone'
 
+  post '/create_favourites', to: 'favourite#create_favourites'
+
 end

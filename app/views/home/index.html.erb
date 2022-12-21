@@ -8,14 +8,18 @@
 <div class='controls'>
 
 </div>
-<hr>
 <div class='controls_add'>
   <div class='controls_container'>
-    <%= link_to 'Войти', '/login', method: :get %>
+    <p class = "text-center"><%= link_to 'Войти', '/login', method: :get %> </p>
   </div>
   <div class='controls_container'>
-    <%= link_to 'Зарегистрироваться', '/register', method: :get %>
+    <p class = "text-center"><%= link_to 'Зарегистрироваться', '/register', method: :get %> </p>
   </div>
 </div>
+
+<hr>
+<h2 class="text-center">Добро пожаловать!</h2>
+<%= image_tag("warehouse.jpg", :alt => "rss feed", class: "img-responsive center-block") %>
+
 </body>
 </html>

@@ -8,7 +8,6 @@ Rails.application.routes.draw do
   post "/manage_operations", to: "operation#create"
 
   get "/show_remains", to: "goods_wh#remains"
-  get "/show_favourites", to: "favourite#favourite"
   get "/show_info", to: "agent#info"
 
   get "/manage_warehouse", to: "warehouse#list"

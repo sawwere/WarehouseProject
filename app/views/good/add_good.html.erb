@@ -8,18 +8,15 @@
 
 
 <h2><caption> Добавить товар </h2></caption>
-<%= form_tag('/create_good') do -%>
-
+<%= bootstrap_form_for :answer, class: 'good_data_form', url: '/create_good' do |f|%>
   <div class='form-field'>
-    <%=label_tag 'nomenclature', 'Название' %>
-    <%=text_field_tag 'answer[nomenclature]'%>
+    <%=f.text_field :nomenclature, label: 'Название' %>
   </div>
   <div class='form-field'>
-    <%=label_tag 'measure', 'Единица измерения' %>
-    <%=text_field_tag 'answer[measure]'%>
+    <%=f.text_field :measure, label: 'Единица измерения'%>
   </div>
   <div class='form-field'>
-    <%= submit_tag 'Добавить' %>
+    <%= f.submit 'Добавить' %>
   </div>
 <% end -%>
 
@@ -34,7 +31,7 @@
   </thead>
 
 
-  <%= form_for :favourite, remote:true, url: '/create_favourites' do |f| %>
+  <%= bootstrap_form_for :favourite, remote:true, url: '/create_favourites' do |f| %>
     <%- @goods.each do |g| %>
       <tr>
           <td> <%= "#{g.nomenclature}" %> </td>

@@ -56,12 +56,12 @@
   </tr>
   </thead>
 
-  <%#- @favourites.each do |f| %>
-<!--    <tr>-->
-<!--      <td><%#= "#{f.good.nomenclature}" %></td>-->
-<!--      <td><%#= "#{f.good.measure}" %></td>-->
-<!--    </tr>-->
-  <%#-end%>
+  <%- @favourites.each do |f| %>
+    <tr>
+      <td><%= "#{f.good.nomenclature}" %></td>
+      <td><%= "#{f.good.measure}" %></td>
+    </tr>
+  <%-end%>
 </table>
 
 </body>
